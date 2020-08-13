@@ -1,11 +1,14 @@
 FROM olbat/cupsd
 
+# Patch the sources.list
+RUN sed -i "s| testing/updates|/debian-security testing-security|" /etc/apt/sources.list
+
 # Install the additional packages we need. Avahi will be included
 RUN apt-get update && apt-get install -y \
 	cups \
 	cups-pdf \
 	inotify-tools \
-	python-cups 
+	python3-cups 
 
 # Copy canon drivers and install them
 COPY drivers/linux-UFRII-drv-v520-uken-05.tar.gz /tmp
