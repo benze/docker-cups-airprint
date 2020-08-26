@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  # airprint
+  cups-airprint:
+    build:
+      context: /home/eric/dev/docker-cups-airprint
+    image: cups-airprint-canon
+    environment: 
+      CUPS_WEBINTERFACE: "yes"
+      CUPS_REMOTE_ADMIN: "yes"
+      CUPS_IP: "192.168.2.97"
+      CUPS_HOSTNAME: "docker"
+    networks:
+      hostnet: {}
+    volumes:
+      - "/mnt/docker/cups:/etc/cups"
+      - "/etc/localtime:/etc/localtime:ro"
+
+networks:
+  hostnet:
+    external: true
+    name: host
