@@ -5,7 +5,10 @@ services:
   cups-airprint:
     build:
       context: /home/eric/dev/docker-cups-airprint
+<<<<<<< HEAD
       network: host
+=======
+>>>>>>> d9df3888c03158ee977ece55e7acc0e0aed65a27
     image: cups-airprint-canon
     environment: 
       CUPS_WEBINTERFACE: "yes"
